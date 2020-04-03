@@ -118,4 +118,31 @@ while player_money > 0:
                     fase = 'Comeout'
                     print('Parabéns')
                     print('Seu dinheiro atual é: {}'.format(player_money))
+                    
+            #Tipo Any Craps
+            if tipo ==  'Any Craps'  or tipo == 'any' or tipo == 'any craps': 
+                print('Seu dinheiro atual é: {}'.format(player_money))
+                # Pergunta quanto ele quer apostar
+                bet3 = int(input('Quanto deseja apostar? '))
+                #Sorteia os dados
+                d1 = random.randint(1,6)
+                d2 = random.randint(1,6)
+                soma4 = d1+d2
+                #Mostra a soma dos dados
+                print('A soma dos dados é igual a {}'.format(soma4))
+                #Compara a soma às regras de Any Craps
+                if soma4 == 2 or soma4 == 3 or soma4 == 12:
+                    #Caso ele ganhe, ele ganha 7x o que apostou
+                    player_money += bet3*7
+                    print('Parabéns')
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+                    print('Seu dinheiro atual é: {}'.format(player_money))
+                else:
+                    #Caso ele perca. ele perde o valor que apostou
+                    player_money -= bet3
+                    print('Você perdeu a aposta!')
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+                    print('Seu dinheiro atual é: {}'.format(player_money))
 
