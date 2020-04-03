@@ -61,3 +61,24 @@ while player_money > 0:
                     point = soma
                     #Avisa ao jogador que está indo para a fase Point
                     print('Próxima fase : POINT!') 
+            
+            #Pass Line Bet na fase Point
+            while Point:
+                #Sorteia os dados
+                d1 = random.randint(1,6)
+                d2 = random.randint(1,6)
+                soma2 = d1+d2
+                #Mostra a soma dos dados
+                print('A soma dos dados é igual a {}'.format(soma2))
+                #Compara a soma obtida às regras do Point 
+                if soma2 == point:
+                    print('Parabéns você ganhou')
+                    player_money += bet 
+                    fase = 'Comeout'
+                    Point = False
+                if soma2 == 7:
+                    player_money = 0
+                    fase = 'Comeout'
+                    Point = False
+                #else:
+                    #print('Nova tentativa!')
