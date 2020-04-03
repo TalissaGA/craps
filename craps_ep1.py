@@ -171,3 +171,13 @@ while player_money > 0:
                     #Retorna à fase Come Out, para outra rodada
                     fase = 'Comeout'
 
+    #Caso o jogador não queira jogar 
+    else: 
+        break
+
+#Mensagem final ao jogador, mostrando seu saldo final.
+if player_money > 0:
+    print('Seu saldo final é de: {} '.format(player_money))
+else:
+    print('Hoje não é seu dia de sorte, seu saldo final é 0!')
+
