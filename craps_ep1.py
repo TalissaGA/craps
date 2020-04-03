@@ -1,4 +1,6 @@
 ##Jogo Craps 
+#Eduardo Papandrea
+#Talissa Albertini
 
 #Importar Biblioteca
 import random 
@@ -69,13 +71,19 @@ while player_money > 0:
                 #Compara a soma obtida às regras do Point 
                 if soma2 == point:
                     print('Parabéns você ganhou')
+                    #Caso o jogador ganhe, ele ganha o valor apostado
                     player_money += bet 
-                    fase = 'Comeout'
+                    #Ao ganhar ou perder, ele finaliza a rodada
                     Point = False
+                    #Retorna à fase Comeout para nova rodada
+                    fase = 'Comeout'
                 if soma2 == 7:
+                    #Ao perder, ele perde todo o dinheiro
                     player_money = 0
-                    fase = 'Comeout'
+                    #Ao ganhar ou perder, ele finaliza a rodada
                     Point = False
+                    #Retorna à fase Comeout para nova rodada
+                    fase = 'Comeout'
             
             #Caso ele não tenha escolhido o tipo Pass
             #Tipo Field
