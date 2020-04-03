@@ -23,10 +23,6 @@ while player_money > 0:
             #Avisa ao jogador que ele está na fase Come out
             print('\nVocê está na fase COME OUT ')
             #Pergunta ao jogador qual tipo de aposta ele deseja realizar
-            if fase == 'Comeout':
-            #Avisa ao jogador que ele está na fase Come out
-            print('\nVocê está na fase COME OUT ')
-            #Pergunta ao jogador qual tipo de aposta ele deseja realizar
             tipo = str(input('Qual tipo de aposta deseja realizar? (Pass Line Bet, Field, Any Craps, Twelve) '))
             #Tipo Pass Line Bet na fase Come out
             if tipo == 'Pass' or tipo=='pass' or tipo=='pass line bet':
@@ -80,5 +76,46 @@ while player_money > 0:
                     player_money = 0
                     fase = 'Comeout'
                     Point = False
-                #else:
-                    #print('Nova tentativa!')
+            
+            #Caso ele não tenha escolhido o tipo Pass
+            #Tipo Field
+            if tipo == 'Field' or tipo=='field':
+                #Mostra ao jogador a quantidade atual de dinheiro
+                print('Seu dinheiro atual é: {}'.format(player_money))
+                bet2 = int(input('Quanto deseja apostar? '))
+                #Sorteia os dados
+                d1 = random.randint(1,6)
+                d2 = random.randint(1,6)
+                soma3 = d1+d2
+                #Mostra a soma dos dados
+                print('A soma dos dados é igual a {}'.format(soma3))
+                #Compara a soma obtida com as regras do Field
+                if soma3 == 5 or soma3 == 6 or soma3 == 7 or soma3 == 8:
+                    #Caso o jogador perca, ele perde tudo
+                    player_money = 0 
+                    print('Você perdeu!')
+                    #Retorna à fase Come out
+                    fase = 'Comeout'
+                elif soma3 == 3 or soma3 == 4 or soma3 == 9 or soma3 == 10 or soma3 == 11:
+                    #Jogador ganha o que apostou
+                    player_money += bet2
+                    print('Parabéns')
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+                    #Mostra ao jogador sua quantidade atual de dinheiro
+                    print('Agora seu dinheiro atual é: {}'.format(player_money))
+                elif soma3 == 2:
+                    #Jogador ganha o dobro do que apostou
+                    player_money += bet2*2
+                    #Retorna à fase Come Out, para outra rodada 
+                    fase = 'Comeout'
+                    print('Parabéns')
+                    print('Agora seu dinheiro atual é: {}'.format(player_money))
+                elif soma3 == 12:
+                    #Jogador ganha o dobro do que apostou
+                    player_money += bet2*3
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+                    print('Parabéns')
+                    print('Seu dinheiro atual é: {}'.format(player_money))
+
