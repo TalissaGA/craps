@@ -146,3 +146,28 @@ while player_money > 0:
                     fase = 'Comeout'
                     print('Seu dinheiro atual é: {}'.format(player_money))
 
+            #Tipo Twelve
+            if tipo == 'Twelve' or tipo == 'twelve':
+                #Mostra ao jogador a quantidade atual de dinheiro
+                print('Seu dinheiro atual é: {}'.format(player_money))
+                bet4 = int(input('Quanto deseja apostar? '))
+                #Sorteia os dados
+                d1 = random.randint(1,6)
+                d2 = random.randint(1,6)
+                soma5 = d1+d2
+                #Mostra a soma dos dados
+                print('A soma dos dados é igual a {}'.format(soma5))
+                #Compara a soma dos dados às regras da Twelve
+                if soma5 == 12:
+                    #Caso ele ganhe, ele ganha 30x o que apostou
+                    player_money += bet5*30
+                    print('Parabéns')
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+                    print('Seu dinheiro atual é: {}'.format(player_money))
+                else:
+                    player_money = 0
+                    print('Você perdeu a aposta!')
+                    #Retorna à fase Come Out, para outra rodada
+                    fase = 'Comeout'
+
